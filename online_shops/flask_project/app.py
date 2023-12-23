@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, login_required
-from flask_security.utils import hash_password
-
+from flask_security import login_user
+from flask_security.utils import hash_password, verify_password
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db.sqlite3"
@@ -33,8 +33,16 @@ class Role(db.Model, RoleMixin):
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore)
 
+articles = [
+    {"id": 1, "name": "Produkt 1", "price": 19.99},
+    {"id": 2, "name": "Produkt 2", "price": 29.99},
+    {"id": 3, "name": "Produkt 3", "price": 39.99},
+]
+@app.route('/home')
+def home():
+    return render_template('home.html', articles=articles)
 
-@app.route('/register', methods=['POST', 'GET'])
+@app.route('/signup', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
         user_datastore.create_user(
@@ -46,6 +54,25 @@ def register():
         return redirect(url_for('profile'))
 
     return render_template('index.html')
+
+@app.route('/signin', methods=['POST','GET'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        print(f"Email: {email}, Password: {password}")
+
+        user = user_datastore.get_user(email)
+
+        if user and verify_password(password, user.password):
+            login_user(user)
+            return redirect(url_for('profile'))
+        else:
+            print("Authentication failed")
+
+    return render_template('signin.html')
+
 
 @app.route('/profile')
 @login_required
