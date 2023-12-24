@@ -3,8 +3,17 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, login_required
 from flask_security import login_user
 from flask_security.utils import hash_password, verify_password
+from flask_caching import Cache
+from loguru import logger
+import time
+#import logging
+#für logging werde ich danach middelware benutzen
+
 
 app = Flask(__name__)
+cache = Cache(app, config={'CACHE_TYPE': 'redis', 'CACHE_KEY_PREFIX': 'myapp'})
+logger.add("app.log", level="INFO", rotation="1 minute", compression="zip")
+
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db.sqlite3"
 app.config['SECRET_KEY'] = 'MY_SECRET'
 app.config['SECURITY_PASSWORD_SALT'] = 'MY_SECRET_SALT'
@@ -38,11 +47,28 @@ articles = [
     {"id": 2, "name": "Produkt 2", "price": 29.99},
     {"id": 3, "name": "Produkt 3", "price": 39.99},
 ]
+
+def log_message(route):
+    logger.info(f"Caching activity on route '{route}'")
+
+def simulate_error():
+    # Simuliere einen Fehler und logge ihn
+    try:
+        log_message("blabla")
+        1 / 0  # Dies wird einen ZeroDivisionError auslösen
+    except Exception as e:
+        logger.error(f"Error occurred: {str(e)}")
 @app.route('/home')
+@cache.memoize(timeout=600)
 def home():
+    time.sleep(5)
+    log_message('home')
+
+    simulate_error()
     return render_template('home.html', articles=articles)
 
 @app.route('/signup', methods=['POST', 'GET'])
+@cache.memoize(timeout=600)
 def register():
     if request.method == 'POST':
         user_datastore.create_user(
@@ -56,6 +82,7 @@ def register():
     return render_template('index.html')
 
 @app.route('/signin', methods=['POST','GET'])
+@cache.memoize(timeout=600)
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -73,8 +100,8 @@ def login():
 
     return render_template('signin.html')
 
-
 @app.route('/profile')
+@cache.cached(timeout=600)
 @login_required
 def profile():
     return render_template('profile.html')

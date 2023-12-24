@@ -1,0 +1,9 @@
+2023-12-23 20:08:20.438 | INFO     | __main__:log_message:52 - Caching activity on route 'home'
+2023-12-23 20:08:20.440 | INFO     | __main__:log_message:52 - Caching activity on route 'blabla'
+2023-12-23 20:08:20.440 | ERROR    | __main__:simulate_error:60 - Error occurred: division by zero
+2023-12-23 20:08:22.190 | INFO     | __main__:log_message:52 - Caching activity on route 'home'
+2023-12-23 20:08:22.191 | INFO     | __main__:log_message:52 - Caching activity on route 'blabla'
+2023-12-23 20:08:22.192 | ERROR    | __main__:simulate_error:60 - Error occurred: division by zero
+2023-12-23 20:08:24.558 | INFO     | __main__:log_message:52 - Caching activity on route 'home'
+2023-12-23 20:08:24.559 | INFO     | __main__:log_message:52 - Caching activity on route 'blabla'
+2023-12-23 20:08:24.559 | ERROR    | __main__:simulate_error:60 - Error occurred: division by zero
