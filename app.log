@@ -1,4 +1,2 @@
-2024-01-06 23:56:11.347 | INFO     | app:<module>:36 - This log message uses the configured logger.
-2024-01-06 23:56:11.459 | INFO     | app:<module>:36 - This log message uses the configured logger.
-2024-01-06 23:56:11.575 | INFO     | app:<module>:36 - This log message uses the configured logger.
-2024-01-06 23:56:11.743 | INFO     | app:<module>:36 - This log message uses the configured logger.
+2024-01-07 00:06:19.215 | INFO     | utils:log_message:4 - route: 'signup'
+2024-01-07 00:06:19.222 | INFO     | auth.middleware.request_logger:__call__:28 - Request received: GET /auth/signup | Execution time: 0.00799s
