@@ -1,2 +1,2 @@
-2024-01-07 00:06:19.215 | INFO     | utils:log_message:4 - route: 'signup'
-2024-01-07 00:06:19.222 | INFO     | auth.middleware.request_logger:__call__:28 - Request received: GET /auth/signup | Execution time: 0.00799s
+2024-01-11 14:17:29.059 | INFO     | utils:log_message:4 - route: 'signin'
+2024-01-11 14:17:29.115 | INFO     | auth.middleware.request_logger:__call__:28 - Request received: GET /auth/login | Execution time: 0.06497s

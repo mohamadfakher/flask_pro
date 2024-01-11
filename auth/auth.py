@@ -1,17 +1,18 @@
 # auth/auth.py
 from utils import log_message
 from loguru import logger
-from config import db, configure_security
-from flask import Blueprint, render_template, request, redirect, url_for, flash
-from flask_security import UserMixin, RoleMixin, Security, SQLAlchemyUserDatastore, login_user, login_required
+from config import db
+from flask import Blueprint, render_template, redirect, url_for, flash
+from flask_security import UserMixin, RoleMixin, SQLAlchemyUserDatastore, login_user, login_required
 from flask_security import logout_user, current_user
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from werkzeug.security import generate_password_hash, check_password_hash
+from flasgger import swag_from
 
-auth_bp = Blueprint('auth_bp', __name__, template_folder='templates')
+auth_bp = Blueprint('auth_blueprint', __name__, template_folder='templates')
 
 class Role(db.Model, RoleMixin):
     id = db.Column(db.Integer(), primary_key=True)
@@ -53,10 +54,11 @@ class SignupForm(FlaskForm):
             raise ValidationError('Email is already in use.')
 
 
-
-
 @auth_bp.route('/signup', methods=['GET', 'POST'])
 def signup():
+    """
+    Register a new user.
+    """
     log_message('signup')
     if current_user.is_authenticated:
         return redirect(url_for("auth_blueprint.profile"))

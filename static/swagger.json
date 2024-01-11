@@ -1,0 +1,145 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Your Flask Project API",
+    "version": "1.0",
+    "description": "API documentation for Your Flask Project"
+  },
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "summary": "Register a new user",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "confirm_password",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Registration successful"
+          },
+          "400": {
+            "description": "Bad request, invalid input"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Login the user",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "remember_me",
+            "in": "formData",
+            "type": "bollean",
+            "required": false,
+            "description": "Remember Me option"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login successful"
+          },
+          "400": {
+            "description": "Unauthorized user"
+          }
+        }
+      }
+    },
+    "/auth/profile": {
+      "get": {
+        "summary": "User profile",
+        "responses": {
+          "200": {
+            "description": "Retrieve profile successfully"
+          },
+          "401": {
+            "description": "Unauthorized, the user is not logged in"
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "summary": "User logout",
+        "responses": {
+          "200": {
+            "description": "Logout successfully"
+          },
+          "401": {
+            "description": "Unauthorized, the user is not logged in"
+          }
+        }
+      }
+    },
+    "/general/home": {
+      "get": {
+        "summary": "Retrieve home page data",
+        "responses": {
+          "200": {
+            "description": "Successful data retrieval"
+          }
+        }
+      }
+    },
+    "/products/detail/{product_id}": {
+      "get": {
+        "summary": "Call up details on a specific product",
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "ID of the product to be retrieved"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieving product data successfully"
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      }
+    }
+  }
+}

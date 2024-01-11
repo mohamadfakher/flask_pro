@@ -1,9 +1,8 @@
 
 
 
-
-
-
+#active venv
+source venv/bin/activate
 
 
 #Installation von redis-commander
@@ -20,5 +19,8 @@ gunicorn -w 4 -b 0.0.0.0:8000 app:app
 #start gunicorn asyncrone
 gunicorn -w 4 -b 0.0.0.0:8000 -k gevent app:app
 
-#active venv
-source venv/bin/activate
+#configure swagger UI
+http://localhost:5000/api/docs/
+or
+http://0.0.0.0:8001/api/docs/#/
+
