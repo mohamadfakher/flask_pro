@@ -10,7 +10,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from werkzeug.security import generate_password_hash, check_password_hash
-from flasgger import swag_from
 
 auth_bp = Blueprint('auth_blueprint', __name__, template_folder='templates')
 

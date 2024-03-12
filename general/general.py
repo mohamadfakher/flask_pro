@@ -1,7 +1,6 @@
 from utils import *
 from flask import Blueprint, render_template
 from cache.cache_utils import get_data_with_caching
-from flasgger import swag_from
 
 
 general_bp = Blueprint('general_blueprint', __name__, template_folder='templates')

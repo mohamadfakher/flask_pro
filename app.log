@@ -1,2 +1,1 @@
-2024-01-11 14:17:29.059 | INFO     | utils:log_message:4 - route: 'signin'
-2024-01-11 14:17:29.115 | INFO     | auth.middleware.request_logger:__call__:28 - Request received: GET /auth/login | Execution time: 0.06497s
+2024-03-12 14:43:37.719 | INFO     | auth.middleware.request_logger:__call__:28 - Request received: GET /favicon.ico | Execution time: 0.00090s

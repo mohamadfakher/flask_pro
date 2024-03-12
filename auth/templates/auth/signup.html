@@ -1,62 +1,83 @@
-<!-- auth/signup.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
+    <style>
+        /* Style for the centered window */
+        .centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Style for the form */
+        form {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            align-items: center;
+        }
+
+        /* Style for error messages */
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-<h2>Signup</h2>
 
-<style>
-    .form-group {
-        display: grid;
-        grid-template-columns: 7% 1fr;
-        grid-gap: 10px;
-    }
+<!-- The centered window -->
+<div class="centered">
+    <h2>Signup</h2>
 
-    .form-group label {
-        text-align: left;
-        padding-right: 10px;
-    }
-    .form-group input[type="email"],
-    .form-group input[type="password"],
-    .form-group input[type="confirm_password"]{
-    width: 200px;
-    height: 15px;
-    }
+    <!-- The Sign-up form -->
+    <form method="POST" action="{{ url_for('auth_blueprint.signup') }}">
+        {{ form.hidden_tag() }}
 
-</style>
-<form method="POST" action="{{ url_for('auth_blueprint.signup') }}">
-    {{ form.hidden_tag() }}
-    <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    {% if form.email.errors %}
-    <p class="error">{{ form.email.errors[0] }}</p>
-    {% endif %}
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            {% if form.email.errors %}
+            <p class="error">{{ form.email.errors[0] }}</p>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            {% if form.password.errors %}
+            <p class="error">{{ form.password.errors[0] }}</p>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            {% if form.confirm_password.errors %}
+            <p class="error">{{ form.confirm_password.errors[0] }}</p>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Signup</button>
+        </div>
+    </form>
+
+    <!-- Link to login -->
+    <div>
+        <p>Already have an account? <a href="{{ url_for('auth_blueprint.login') }}">Log in here</a>.</p>
     </div>
+</div>
 
-    <div class="form-group">
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    {% if form.password.errors %}
-    <p class="error">{{ form.password.errors[0] }}</p>
-    {% endif %}
-    </div>
-    <div class="form-group">
-    <label for="confirm_password">Confirm Password:</label>
-    <input type="password" id="confirm_password" name="confirm_password" required>
-    {% if form.confirm_password.errors %}
-    <p class="error">{{ form.confirm_password.errors[0] }}</p>
-    {% endif %}
-    </div>
-
-    <div class="form-group">
-    <button type="submit">Signup</button>
-    </div>
-</form>
 </body>
 </html>

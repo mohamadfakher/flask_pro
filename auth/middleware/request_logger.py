@@ -16,7 +16,7 @@ class RequestLoggerMiddleware:
             logger.add(lambda msg: print(msg, end=""), level=self.log_level, format=self.log_format)
 
     def __call__(self, environ, start_response):
-        # Hier kannst du die Logging-Logik implementieren
+        #Logging-Logik implementieren
         start_time = time.time()
 
         # Rufe die nächste Middleware oder die Hauptanwendung auf

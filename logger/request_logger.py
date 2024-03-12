@@ -1,4 +1,4 @@
-# logger/custom_logger.py
+# logger/request_logger.py
 from loguru import logger
 
 class AppLogger:
