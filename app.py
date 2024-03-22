@@ -10,7 +10,6 @@ from logger.request_logger import AppLogger
 from config import db, create_app
 from cache.cache_utils import configure_cache
 
-from flask import Flask, render_template
 from flask_swagger_ui import get_swaggerui_blueprint
 
 app = create_app()

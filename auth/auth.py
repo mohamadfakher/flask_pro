@@ -11,7 +11,7 @@ from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from werkzeug.security import generate_password_hash, check_password_hash
 
-auth_bp = Blueprint('auth_blueprint', __name__, template_folder='templates')
+auth_bp = Blueprint('auth_blueprint', __name__, template_folder='templates', static_folder='static')
 
 class Role(db.Model, RoleMixin):
     id = db.Column(db.Integer(), primary_key=True)
@@ -25,6 +25,8 @@ class User(db.Model, UserMixin):
     active = db.Column(db.Boolean())
     roles = db.relationship('Role', secondary='user_roles')
     remember_me = db.Column(db.Boolean, default=False)
+    image_path = db.Column(db.String(255), default='profile_image.png')
+
 
 # This table connects users with roles
 user_roles = db.Table('user_roles',
@@ -79,7 +81,7 @@ def signup():
         )
         db.session.commit()
 
-        flash('Your account has been created! You can now log in.', 'success')
+        #flash('Your account has been created!', 'success')
         return redirect(url_for('auth_blueprint.login'))
     return render_template('auth/signup.html', form=form)
 

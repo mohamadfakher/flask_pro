@@ -1,1 +1,47 @@
-2024-03-12 14:43:37.719 | INFO     | auth.middleware.request_logger:__call__:28 - Request received: GET /favicon.ico | Execution time: 0.00090s
+2024-03-22 05:36:34.764 | INFO     | app:<module>:45 - This log message uses the configured logger.
+2024-03-22 05:36:34.931 | INFO     | app:<module>:45 - This log message uses the configured logger.
+2024-03-22 05:36:35.224 | INFO     | app:<module>:45 - This log message uses the configured logger.
+2024-03-22 05:36:35.334 | INFO     | app:<module>:45 - This log message uses the configured logger.
+2024-03-22 05:36:38.262 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/ | Execution time: 0.00801s
+2024-03-22 05:36:43.942 | INFO     | utils:log_message:4 - route: 'signin'
+2024-03-22 05:36:43.992 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/login | Execution time: 0.05835s
+2024-03-22 05:36:51.457 | INFO     | utils:log_message:4 - route: 'signin'
+2024-03-22 05:36:51.794 | INFO     | auth.auth:login:107 - Authentication failed
+2024-03-22 05:36:51.855 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: POST /auth/login | Execution time: 0.40780s
+2024-03-22 05:36:52.122 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /favicon.ico | Execution time: 0.00786s
+2024-03-22 05:36:54.744 | INFO     | utils:log_message:4 - route: 'signup'
+2024-03-22 05:36:54.788 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/signup | Execution time: 0.04749s
+2024-03-22 05:36:57.941 | INFO     | utils:log_message:4 - route: 'signup'
+2024-03-22 05:36:58.403 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: POST /auth/signup | Execution time: 0.46541s
+2024-03-22 05:36:58.427 | INFO     | utils:log_message:4 - route: 'signin'
+2024-03-22 05:36:58.476 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/login | Execution time: 0.05878s
+2024-03-22 05:37:00.843 | INFO     | utils:log_message:4 - route: 'signin'
+2024-03-22 05:37:00.907 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: POST /auth/login | Execution time: 0.07231s
+2024-03-22 05:37:00.979 | INFO     | utils:log_message:4 - route: 'profile'
+2024-03-22 05:37:01.001 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/profile | Execution time: 0.04127s
+2024-03-22 05:37:01.817 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /favicon.ico | Execution time: 0.02555s
+2024-03-22 05:37:01.911 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/static/images/profile_image.png | Execution time: 0.10776s
+2024-03-22 05:37:03.702 | INFO     | utils:log_message:4 - route: 'logout'
+2024-03-22 05:37:03.727 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/logout | Execution time: 0.04481s
+2024-03-22 05:37:03.970 | INFO     | utils:log_message:4 - route: 'signin'
+2024-03-22 05:37:03.979 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/login | Execution time: 0.01602s
+2024-03-22 05:37:04.329 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /favicon.ico | Execution time: 0.00748s
+2024-03-22 05:37:07.132 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/profile | Execution time: 0.02242s
+2024-03-22 05:37:07.322 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /login | Execution time: 0.17327s
+2024-03-22 05:37:07.580 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /favicon.ico | Execution time: 0.00527s
+2024-03-22 05:37:13.800 | INFO     | utils:log_message:4 - route: 'home'
+2024-03-22 05:37:13.838 | INFO     | utils:log_message:4 - route: 'Cache miss for route 'home''
+2024-03-22 05:37:13.926 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /general/home | Execution time: 0.12904s
+2024-03-22 05:37:14.197 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /products/static/images/product1.png | Execution time: 0.05277s
+2024-03-22 05:37:16.258 | INFO     | utils:log_message:4 - route: '/view/<int:product_id>'
+2024-03-22 05:37:16.298 | INFO     | utils:log_message:4 - route: 'Cache miss for route 'view''
+2024-03-22 05:37:16.365 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /product_detail/view/1 | Execution time: 0.11165s
+2024-03-22 05:37:16.826 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /products/static/images/product1.png | Execution time: 0.05650s
+2024-03-22 05:37:18.206 | INFO     | utils:log_message:4 - route: 'signin'
+2024-03-22 05:37:18.247 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/login | Execution time: 0.04943s
+2024-03-22 05:37:21.130 | INFO     | utils:log_message:4 - route: 'signin'
+2024-03-22 05:37:21.485 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: POST /auth/login | Execution time: 0.36168s
+2024-03-22 05:37:21.518 | INFO     | utils:log_message:4 - route: 'profile'
+2024-03-22 05:37:21.550 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/profile | Execution time: 0.05077s
+2024-03-22 05:37:21.835 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /auth/static/images/profile_image.png | Execution time: 0.02683s
+2024-03-22 05:37:21.890 | INFO     | auth.middleware.request_logger:__call__:24 - Request received: GET /favicon.ico | Execution time: 0.02517s

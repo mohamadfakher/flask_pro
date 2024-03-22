@@ -55,7 +55,6 @@ class TestAuthBlueprint(TestCase):
         }
         response = self.client.post('/auth/signup', data=data)
         self.assertRedirects(response, '/auth/login')
-        # Überprüfen Sie, ob die Erfolgsmeldung in der Weiterleitung vorhanden ist
         login_page_response = self.client.get('/auth/login')
         self.assertIn(b'Your account has been created!', login_page_response.data)
 

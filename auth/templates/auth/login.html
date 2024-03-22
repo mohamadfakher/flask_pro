@@ -36,11 +36,9 @@
 </head>
 <body>
 
-<!-- Das zentrierte Fenster -->
 <div class="centered">
     <h2>Login</h2>
 
-    <!-- Das Login-Formular -->
     <form method="POST" action="{{ url_for('auth_blueprint.login') }}">
         {{ form.hidden_tag() }}
 
@@ -65,7 +63,6 @@
         </div>
     </form>
 
-    <!-- Link zur Registrierung -->
     <div>
         <p>No account? <a href="{{ url_for('auth_blueprint.signup') }}">Sign up here</a>.</p>
     </div>

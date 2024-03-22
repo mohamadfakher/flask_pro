@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
-    <!-- Hier kannst du deine Stylesheets und andere Meta-Informationen einbinden -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .product-image {
@@ -51,14 +50,12 @@
     <h1>Product Details</h1>
     <div class="row">
         <div class="col-md-4">
-            <!-- Hier könntest du das Produktbild einbinden -->
             <img class="product-image" src="/products/static/images/{{ product.image_path }}" alt="{{ product.name }} Image">
         </div>
         <div class="col-md-8 product-details">
             <h2>{{ product.name }}</h2>
             <p>{{ product.description }}</p>
             <p>Price: ${{ product.price }}</p>
-            <!-- Hier könntest du weitere Produktinformationen einbinden -->
         </div>
     </div>
 </div>

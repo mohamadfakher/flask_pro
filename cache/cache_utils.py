@@ -1,4 +1,4 @@
-#cache_utils.py
+#cache/cache_utils.py
 from flask_caching import Cache
 from utils import log_message
 from products.products import Products
@@ -12,7 +12,7 @@ cache = Cache()
 def configure_cache(app):
     cache.init_app(app, config={
         'CACHE_TYPE': 'redis',
-        'CACHE_REDIS_URL': 'redis://localhost:6379/0',  # Hier die Redis-Verbindungsdaten eintragen
+        'CACHE_REDIS_URL': 'redis://localhost:6379/0',
         'CACHE_DEFAULT_TIMEOUT': 300
     })
 
@@ -20,7 +20,6 @@ def cache_key(route):
     return f"{route}: version1"
 
 def get_data_from_database():
-    # Hier könntest du den Code zum Abrufen der Daten aus der Datenbank implementieren
     products = Products.query.all()
     return products
 def get_product_by_id(products, product_id):
