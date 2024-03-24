@@ -15,22 +15,21 @@ from flask_swagger_ui import get_swaggerui_blueprint
 app = create_app()
 configure_cache(app)
 
-#configure swagger UI
-SWAGGER_URL = '/api/docs'  # Die URL, unter der Swagger UI verfügbar sein wird
-API_URL = '/static/swagger.json'  # Die URL deiner Swagger-Spezifikation
+
+SWAGGER_URL = '/api/docs'
+API_URL = '/static/swagger.json'
 
 swagger_ui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,
     API_URL,
     config={
-        'app_name': "Flask Project API"  # Optional, der Name deiner API
+        'app_name': "Flask Project API"
     }
 )
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 
 with app.app_context():
-    # Add sample data
     sample_product = Products(name='Sample Product', description='This is a sample product', price=19.99, image_path='product1.png')
     db.session.add(sample_product)
     db.session.commit()

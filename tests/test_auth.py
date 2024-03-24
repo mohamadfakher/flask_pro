@@ -7,19 +7,15 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import unittest
 from flask_testing import TestCase
-from flask import Flask, url_for
+from flask import url_for
 from config import db, create_app
-from auth.auth import User, Role
-from auth.middleware.auth_middleware import AuthMiddleware
-from auth.middleware.request_logger import RequestLoggerMiddleware
-from app_factory import create_flask_app
-from utils import log_message
+from auth.auth import User
 
 class TestAuthBlueprint(TestCase):
     def create_app(self):
         app = create_app()
         app.config['TESTING'] = True
-        app.config['WTF_CSRF_ENABLED'] = False  # Disable CSRF for testing
+        app.config['WTF_CSRF_ENABLED'] = False
         return app
 
     def setUp(self):
@@ -81,7 +77,7 @@ class TestAuthBlueprint(TestCase):
             'confirm_password': 'password_mismatch'
         }
         response = self.client.post('/auth/signup', data=invalid_data, follow_redirects=True)
-        self.assertIn(b'Invalid email address.', response.data)  # Assuming this is the error message
+        self.assertIn(b'Invalid email address.', response.data)
 
         invalid_data = {
             'email': 'invalid_email',
@@ -89,7 +85,7 @@ class TestAuthBlueprint(TestCase):
             'remember': False
         }
         response = self.client.post('/auth/login', data=invalid_data, follow_redirects=True)
-        self.assertIn(b'Invalid email address.', response.data)  # Assuming this is the error message
+        self.assertIn(b'Invalid email address.', response.data)
 
 
 if __name__ == '__main__':
